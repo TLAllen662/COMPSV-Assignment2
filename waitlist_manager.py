@@ -29,6 +29,11 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def add_front(self, name):
+        new_node = Node(name)
+        new_node.next = self.head
+        self.head = new_node
+
 
 def waitlist_generator():
     # Create a new linked list instance
