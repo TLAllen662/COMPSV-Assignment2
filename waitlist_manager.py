@@ -34,6 +34,16 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def print_list(self):
+        if self.head is None:
+            print("The waitlist is empty")
+            return
+
+        current_node = self.head
+        while current_node is not None:
+            print(f"- {current_node.name}")
+            current_node = current_node.next
+
 
 def waitlist_generator():
     # Create a new linked list instance
