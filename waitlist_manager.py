@@ -25,7 +25,9 @@ class LinkedList:
         remove(name): Removes a customer from the waitlist by name.
         print_list(): Prints the current waitlist.
     '''
-    
+
+    def __init__(self):
+        self.head = None
 
 
 def waitlist_generator():
