@@ -77,8 +77,8 @@ class LinkedList:
 
 def waitlist_generator():
     # Create a new linked list instance
-    
-    
+    waitlist = LinkedList()
+
     while True:
         print("\n--- Waitlist Manager ---")
         print("1. Add customer to front")
@@ -92,24 +92,22 @@ def waitlist_generator():
         if choice == "1":
             name = input("Enter customer name to add to front: ")
             # Call the add_front method
-            
+            waitlist.add_front(name)
 
         elif choice == "2":
             name = input("Enter customer name to add to end: ")
             # Call the add_end method
-            
+            print(waitlist.add_end(name))
 
         elif choice == "3":
             name = input("Enter customer name to remove: ")
             # Call the remove method
-            
-            
+            print(waitlist.remove(name))
+
         elif choice == "4":
             print("Current waitlist:")
             # Print out the entire linked list using the print_list method.
-            
-            
-            
+            waitlist.print_list()
 
         elif choice == "5":
             print("Exiting waitlist manager.")
@@ -118,6 +116,8 @@ def waitlist_generator():
             print("Invalid option. Please choose 1–5.")
 
 # Call the waitlist_generator function to start the program
+if __name__ == "__main__":
+    waitlist_generator()
 
 
 '''
