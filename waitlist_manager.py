@@ -6,8 +6,10 @@ class Node:
         name (str): The name of the customer.
         next (Node): A reference to the next node in the list.
     '''
-    
-    
+
+    def __init__(self, name):
+        self.name = name
+        self.next = None
 
 
 
