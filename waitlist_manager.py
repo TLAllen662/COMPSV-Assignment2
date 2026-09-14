@@ -34,6 +34,19 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def add_end(self, name):
+        new_node = Node(name)
+
+        if self.head is None:
+            self.head = new_node
+        else:
+            current_node = self.head
+            while current_node.next is not None:
+                current_node = current_node.next
+            current_node.next = new_node
+
+        return f"{name} added to the end of the waitlist"
+
     def print_list(self):
         if self.head is None:
             print("The waitlist is empty")
