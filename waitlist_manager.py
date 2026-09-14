@@ -126,3 +126,33 @@ Design Memo: Write Your Design Memo Include a 200–300 word response in your co
 - What role does the head play?
 - When might a real engineer need a custom list like this?
 '''
+
+# This waitlist is implemented as a singly linked list. Each Node stores one
+# customer's name and a next pointer. The next pointer either refers to the
+# following Node or contains None when that customer is last in the list. The
+# LinkedList object does not keep customer names directly; instead,
+# it stores a head pointer to the first Node. Methods move through the list by
+# starting at head and repeatedly following next pointers until they reach
+# None.
+#
+# Adding a customer to the front is efficient because the program creates a
+# new Node, points it at the current head, and makes that new Node the head.
+# Adding a customer to the end requires traversal because this version does not
+# store a tail pointer. It follows next pointers to the final Node and updates
+# that Node's next pointer to reference the new customer. Removing a customer
+# also traverses the list. When a matching Node is found, the previous Node's
+# next pointer skips over it. Removing the first Node is a special case because
+# head must be updated to the second Node.
+#
+# The head is the entry point for every list operation. If head is None, the
+# waitlist is empty. If head refers to a Node, every other customer can be
+# reached from it. Maintaining head correctly is especially important when the
+# first customer is added or removed; otherwise, the program could lose access
+# to the entire list.
+#
+# A real engineer may choose a custom linked list when insertions or removals
+# happen often and direct references to nearby items are available. Examples
+# include a task scheduler, a media playlist, a cache eviction queue, or an
+# embedded system with constrained memory. In many Python applications, the
+# built-in list or collections.deque is a better practical choice, but building
+# this structure demonstrates how those pointer relationships work.
