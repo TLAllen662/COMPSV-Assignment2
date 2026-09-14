@@ -47,6 +47,23 @@ class LinkedList:
 
         return f"{name} added to the end of the waitlist"
 
+    def remove(self, name):
+        if self.head is None:
+            return f"{name} not found"
+
+        if self.head.name == name:
+            self.head = self.head.next
+            return f"Removed {name} from the waitlist"
+
+        current_node = self.head
+        while current_node.next is not None:
+            if current_node.next.name == name:
+                current_node.next = current_node.next.next
+                return f"Removed {name} from the waitlist"
+            current_node = current_node.next
+
+        return f"{name} not found"
+
     def print_list(self):
         if self.head is None:
             print("The waitlist is empty")
